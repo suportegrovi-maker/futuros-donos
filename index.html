@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Imersão Futuros Donos | Descubra o que está travando seu negócio</title>
+<meta name="description" content="Uma experiência online e gratuita com Erico Theophilo para identificar o que está travando o crescimento do seu negócio. 15 e 16 de junho, às 19h."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --black:#05080F;
+  --black2:#080E1A;
+  --surface:#0B1628;
+  --surface2:#0F1E36;
+  --blue-deep:#112244;
+  --blue-mid:#1A3A6B;
+  --blue:#2463EB;
+  --blue-bright:#3B7BF8;
+  --blue-light:#6FA3FF;
+  --gold:#C9A84C;
+  --gold-light:#E8C96A;
+  --gold-pale:rgba(201,168,76,.15);
+  --gold-border:rgba(201,168,76,.35);
+  --gold-glow:rgba(201,168,76,.12);
+  --blue-border:rgba(59,123,248,.3);
+  --blue-glow:rgba(36,99,235,.2);
+  --white:#F0F4FF;
+  --muted:#8DA0C4;
+  --muted2:#566A8C;
+  --danger:#EF5656;
+  --font:'Montserrat',sans-serif;
+}
+html{scroll-behavior:smooth}
+body{background:var(--black);color:var(--white);font-family:var(--font);font-size:16px;line-height:1.7;overflow-x:hidden}
+img{max-width:100%;height:auto;display:block}
+a{color:var(--blue-light);text-decoration:none}
+a:hover{color:var(--gold-light)}
+ul{list-style:none}
+h1,h2,h3,h4{font-family:var(--font);line-height:1.18;letter-spacing:-.025em}
+h1{font-size:clamp(2.1rem,5.5vw,3.8rem);font-weight:800}
+h2{font-size:clamp(1.65rem,4vw,2.8rem);font-weight:800}
+h3{font-size:clamp(1.05rem,2.5vw,1.45rem);font-weight:700}
+p{color:var(--muted);font-weight:500}
+
+/* ── LAYOUT ── */
+.wrap{width:100%;max-width:1160px;margin:0 auto;padding:0 24px}
+.center{text-align:center}
+
+/* ── GOLD DIVIDER ── */
+.gold-line{display:block;width:56px;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:0 auto 28px}
+.gold-line-left{margin:0 0 28px}
+
+/* ── TAG / LABEL ── */
+.tag{display:inline-flex;align-items:center;gap:8px;padding:6px 18px;background:rgba(201,168,76,.1);border:1px solid var(--gold-border);border-radius:100px;font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-light);margin-bottom:24px}
+.tag::before{content:'';display:inline-block;width:5px;height:5px;border-radius:50%;background:var(--gold);flex-shrink:0}
+
+/* ── BUTTONS ── */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:16px 36px;border:none;border-radius:6px;font-family:var(--font);font-size:.97rem;font-weight:700;letter-spacing:.03em;cursor:pointer;transition:all .25s;white-space:nowrap;text-decoration:none;position:relative;overflow:hidden}
+.btn::after{content:'';position:absolute;inset:0;opacity:0;transition:opacity .25s;border-radius:inherit}
+/* Primary blue */
+.btn-p{background:linear-gradient(135deg,#1750D8 0%,#2463EB 55%,#4080F5 100%);color:#fff;box-shadow:0 0 32px rgba(36,99,235,.5),0 4px 20px rgba(0,0,0,.5),inset 0 1px 0 rgba(255,255,255,.15)}
+.btn-p::after{background:rgba(255,255,255,.08)}
+.btn-p:hover::after,.btn-p:focus-visible::after{opacity:1}
+.btn-p:hover,.btn-p:focus-visible{transform:translateY(-2px);box-shadow:0 0 48px rgba(59,123,248,.7),0 8px 32px rgba(0,0,0,.6),inset 0 1px 0 rgba(255,255,255,.2);outline:2px solid rgba(111,163,255,.6);outline-offset:3px}
+.btn-p:active{transform:translateY(0)}
+/* Gold accent button */
+.btn-g{background:linear-gradient(135deg,#A0781E 0%,#C9A84C 50%,#E8C96A 100%);color:#05080F;box-shadow:0 0 24px rgba(201,168,76,.4),0 4px 16px rgba(0,0,0,.5),inset 0 1px 0 rgba(255,255,255,.3);font-weight:800}
+.btn-g:hover,.btn-g:focus-visible{transform:translateY(-2px);box-shadow:0 0 40px rgba(232,201,106,.6),0 8px 24px rgba(0,0,0,.5)}
+.btn-full{width:100%}
+/* Pulse */
+@keyframes pglow{0%,100%{box-shadow:0 0 32px rgba(36,99,235,.5),0 4px 20px rgba(0,0,0,.5),inset 0 1px 0 rgba(255,255,255,.15)}50%{box-shadow:0 0 56px rgba(59,123,248,.8),0 8px 28px rgba(0,0,0,.6),inset 0 1px 0 rgba(255,255,255,.2)}}
+.btn-pulse{animation:pglow 2.8s ease-in-out infinite}
+@media(prefers-reduced-motion:reduce){.btn-pulse{animation:none}}
+/* Shimmer */
+@keyframes shimmer{0%{left:-120%}100%{left:140%}}
+.btn-p::before{content:'';position:absolute;top:0;left:-120%;width:60%;height:100%;background:linear-gradient(105deg,transparent 40%,rgba(255,255,255,.18) 50%,transparent 60%);animation:shimmer 3.5s ease-in-out infinite;border-radius:inherit}
+@media(prefers-reduced-motion:reduce){.btn-p::before{display:none}}
+
+/* ── SECTIONS ── */
+.sec{padding:110px 0;position:relative}
+.sec-alt{background:var(--black2)}
+.sec-deep{background:var(--surface)}
+.sec-title{text-align:center;color:var(--white);margin-bottom:16px}
+.sec-title-left{text-align:left}
+.sec-body{text-align:center;max-width:680px;margin:0 auto 56px;font-size:1.05rem;line-height:1.8}
+.sec-body-left{text-align:left;margin:0 0 20px;max-width:100%}
+.sec-impact{text-align:center;font-size:clamp(1.15rem,2.5vw,1.5rem);font-weight:700;color:var(--gold-light);margin-top:48px;letter-spacing:-.01em}
+.sec-callout{text-align:center;font-size:1rem;color:var(--muted);max-width:560px;margin:28px auto 44px}
+
+/* ── REVEAL ── */
+.rv{opacity:0;transform:translateY(32px);transition:opacity .6s ease,transform .6s ease}
+.rv.on{opacity:1;transform:translateY(0)}
+@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}}
+
+/* ══════════════════════════════
+   HERO
+══════════════════════════════ */
+.hero{position:relative;min-height:100svh;display:flex;align-items:center;overflow:hidden;padding:90px 0 70px;
+  background:radial-gradient(ellipse 120% 80% at 65% 40%,#0F2A5A 0%,#07101E 45%,#05080F 80%)}
+#hcv{position:absolute;inset:0;pointer-events:none;z-index:0}
+/* Subtle grid lines */
+.hero::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(36,99,235,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(36,99,235,.04) 1px,transparent 1px);background-size:72px 72px;z-index:0;mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,black 0%,transparent 100%)}
+/* Gold top accent */
+.hero::after{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent 0%,var(--gold) 40%,var(--gold-light) 50%,var(--gold) 60%,transparent 100%);z-index:2}
+
+.hero-in{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;position:relative;z-index:1}
+.hero-copy{display:flex;flex-direction:column;align-items:flex-start}
+.hero-eyebrow{display:flex;align-items:center;gap:12px;margin-bottom:20px}
+.hero-eyebrow-line{width:32px;height:1px;background:var(--gold);flex-shrink:0}
+.hero-eyebrow-text{font-size:.7rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+.hero-title{color:var(--white);margin-bottom:10px;max-width:580px}
+.hero-title span{background:linear-gradient(135deg,#6FA3FF,#4080F5);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-divider{width:48px;height:2px;background:linear-gradient(90deg,var(--gold),var(--gold-light));margin:20px 0 24px;border-radius:2px}
+.hero-sub{font-size:1.05rem;color:var(--muted);max-width:500px;margin-bottom:36px;line-height:1.8;font-weight:500}
+/* Pills */
+.pills{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:40px}
+.pill{display:inline-flex;align-items:center;gap:7px;padding:8px 18px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:100px;font-size:.78rem;font-weight:600;color:var(--muted);backdrop-filter:blur(12px);transition:border-color .2s}
+.pill:hover{border-color:var(--gold-border)}
+.pill-icon{font-size:.9rem}
+.hero-micro{margin-top:14px;font-size:.78rem;color:var(--muted2);display:flex;align-items:center;gap:6px}
+.hero-micro::before{content:'';width:4px;height:4px;border-radius:50%;background:var(--gold);flex-shrink:0}
+
+/* Visual column */
+.hero-vis{position:relative;display:flex;justify-content:center;align-items:flex-end;min-height:500px}
+.hero-glow{position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:420px;height:420px;background:radial-gradient(circle,rgba(36,99,235,.35) 0%,transparent 70%);pointer-events:none;z-index:0}
+.hero-gold-glow{position:absolute;bottom:20%;right:10%;width:200px;height:200px;background:radial-gradient(circle,rgba(201,168,76,.12) 0%,transparent 70%);pointer-events:none;z-index:0}
+.hero-ring{position:absolute;bottom:-5%;left:50%;transform:translateX(-50%);width:360px;height:360px;border-radius:50%;border:1px solid rgba(36,99,235,.15);z-index:0}
+.hero-ring2{position:absolute;bottom:-12%;left:50%;transform:translateX(-50%);width:480px;height:480px;border-radius:50%;border:1px solid rgba(201,168,76,.07);z-index:0}
+.hero-photo{position:relative;z-index:1;border-radius:12px;max-height:560px;object-fit:cover;filter:drop-shadow(0 12px 64px rgba(36,99,235,.5));border:1px solid rgba(59,123,248,.2)}
+/* Floating cards */
+.fcard{position:absolute;display:flex;align-items:center;gap:12px;padding:14px 20px;background:rgba(11,22,40,.9);border:1px solid var(--gold-border);border-radius:10px;backdrop-filter:blur(20px);font-size:.82rem;font-weight:600;color:var(--white);z-index:2;box-shadow:0 8px 32px rgba(0,0,0,.6),0 0 0 1px rgba(201,168,76,.08) inset;white-space:nowrap}
+.fcard-icon{font-size:1.1rem;flex-shrink:0}
+.fcard-text{display:flex;flex-direction:column;gap:1px}
+.fcard-label{font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);line-height:1}
+.fcard-t{top:8%;left:-10%}
+.fcard-b{bottom:14%;right:-8%}
+@keyframes flt{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+.flt{animation:flt 4.5s ease-in-out infinite}
+.fcard-b{animation-delay:1.6s}
+@media(prefers-reduced-motion:reduce){.flt{animation:none}}
+.scroll-hint{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:6px}
+.scroll-hint span{font-size:.65rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted2)}
+@keyframes bd{0%,100%{opacity:.5;transform:translateY(0)}50%{opacity:1;transform:translateY(7px)}}
+.scroll-arrow{width:18px;height:18px;border-right:1.5px solid var(--gold);border-bottom:1.5px solid var(--gold);transform:rotate(45deg);animation:bd 2s ease-in-out infinite}
+@media(prefers-reduced-motion:reduce){.scroll-arrow{animation:none}}
+
+/* ══════════════════════════════
+   PAIN
+══════════════════════════════ */
+.pain-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px;margin-top:52px}
+.pain-card{display:flex;align-items:flex-start;gap:16px;padding:24px 24px;background:rgba(11,22,40,.6);border:1px solid rgba(255,255,255,.07);border-radius:10px;font-size:.95rem;color:var(--muted);font-weight:500;transition:border-color .25s,background .25s,box-shadow .25s;backdrop-filter:blur(8px)}
+.pain-card:hover{border-color:var(--gold-border);background:rgba(11,22,40,.85);box-shadow:0 0 32px var(--gold-glow)}
+.pain-check{width:24px;height:24px;border-radius:50%;background:var(--gold-pale);border:1px solid var(--gold-border);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+.pain-check svg{width:11px;height:11px;stroke:var(--gold);stroke-width:2.5;fill:none}
+
+/* ══════════════════════════════
+   METHOD
+══════════════════════════════ */
+.vs-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:12px;margin:52px 0 28px}
+.vs-card{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;padding:24px 12px;background:rgba(11,22,40,.7);border-radius:10px;font-size:.82rem;font-weight:600;color:var(--muted);text-align:center;border:1px solid rgba(255,255,255,.07);transition:all .25s;cursor:default;position:relative;overflow:hidden}
+.vs-card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:0;transition:opacity .25s}
+.vs-card:hover{border-color:var(--gold-border);color:var(--white);box-shadow:0 0 24px var(--gold-glow);transform:translateY(-3px)}
+.vs-card:hover::before{opacity:1}
+.vs-letter{font-size:2rem;font-weight:900;background:linear-gradient(135deg,var(--gold),var(--gold-light));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1}
+
+/* ══════════════════════════════
+   DAYS
+══════════════════════════════ */
+.days-track{display:grid;grid-template-columns:1fr 1fr;gap:40px;position:relative;margin-top:60px}
+.days-connector{display:none}
+@media(min-width:768px){.days-track{gap:0}.days-connector{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:0 24px;flex-shrink:0}.days-connector-line{width:1px;flex:1;background:linear-gradient(to bottom,transparent,var(--gold),transparent)}.days-connector-dot{width:10px;height:10px;border-radius:50%;background:var(--gold);box-shadow:0 0 12px var(--gold);flex-shrink:0}.days-track{grid-template-columns:1fr auto 1fr}}
+.day-card{background:rgba(11,22,40,.8);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:36px 32px;position:relative;overflow:hidden;transition:box-shadow .3s,border-color .3s;backdrop-filter:blur(12px)}
+.day-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--blue),transparent)}
+.day-card:hover{border-color:var(--blue-border);box-shadow:0 0 40px var(--blue-glow)}
+.day-card:nth-child(3)::before{background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.day-card:nth-child(3):hover{border-color:var(--gold-border);box-shadow:0 0 40px var(--gold-glow)}
+.day-badge{display:inline-flex;align-items:center;gap:6px;padding:5px 16px;background:rgba(36,99,235,.15);border:1px solid var(--blue-border);border-radius:100px;font-size:.7rem;font-weight:700;letter-spacing:.1em;color:var(--blue-light);margin-bottom:18px;text-transform:uppercase}
+.day-card:nth-child(3) .day-badge{background:rgba(201,168,76,.12);border-color:var(--gold-border);color:var(--gold-light)}
+.day-title{color:var(--white);margin-bottom:22px;font-size:1.1rem;font-weight:700}
+.day-list{display:flex;flex-direction:column;gap:14px}
+.day-list li{display:flex;gap:12px;font-size:.92rem;color:var(--muted);font-weight:500;align-items:flex-start}
+.day-list li::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--blue-light);flex-shrink:0;margin-top:7px}
+.day-card:nth-child(3) .day-list li::before{background:var(--gold)}
+
+/* ══════════════════════════════
+   AUTHORITY
+══════════════════════════════ */
+.auth-in{display:grid;grid-template-columns:320px 1fr;gap:72px;align-items:center}
+.auth-vis{position:relative;flex-shrink:0}
+.auth-frame{position:relative;z-index:1}
+.auth-frame::before{content:'';position:absolute;top:-12px;left:-12px;right:12px;bottom:12px;border:1px solid var(--gold-border);border-radius:14px;z-index:0}
+.auth-frame::after{content:'';position:absolute;top:12px;left:12px;right:-12px;bottom:-12px;border:1px solid rgba(36,99,235,.25);border-radius:14px;z-index:0}
+.auth-photo{position:relative;z-index:1;border-radius:12px;width:100%;object-fit:cover;filter:drop-shadow(0 8px 48px rgba(36,99,235,.3))}
+.auth-glow{position:absolute;bottom:-30px;left:50%;transform:translateX(-50%);width:280px;height:200px;background:radial-gradient(ellipse,rgba(36,99,235,.3) 0%,transparent 70%);z-index:0}
+.auth-badges{display:flex;flex-direction:column;gap:10px;margin-top:28px}
+.auth-badge{display:flex;align-items:center;gap:14px;padding:14px 20px;background:rgba(11,22,40,.7);border:1px solid rgba(255,255,255,.07);border-radius:8px;font-size:.88rem;color:var(--muted);font-weight:500;transition:border-color .2s,background .2s}
+.auth-badge:hover{border-color:var(--gold-border);background:rgba(11,22,40,.9)}
+.auth-badge-icon{width:32px;height:32px;border-radius:8px;background:var(--gold-pale);border:1px solid var(--gold-border);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1rem}
+
+/* ══════════════════════════════
+   FOR WHOM
+══════════════════════════════ */
+.fw-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:14px;margin-top:48px}
+.ck-card{display:flex;align-items:flex-start;gap:14px;padding:20px 22px;background:rgba(11,22,40,.5);border:1px solid rgba(255,255,255,.07);border-radius:10px;font-size:.93rem;color:var(--muted);font-weight:500;transition:border-color .25s,background .25s}
+.ck-card:hover{border-color:rgba(111,163,255,.3);background:rgba(11,22,40,.8)}
+.ck-icon{width:22px;height:22px;border-radius:50%;background:rgba(36,99,235,.15);border:1px solid var(--blue-border);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+.ck-icon svg{width:10px;height:10px;stroke:var(--blue-light);stroke-width:2.5;fill:none}
+.notfor{margin:56px auto 0;padding:32px 36px;background:rgba(239,86,86,.05);border:1px solid rgba(239,86,86,.2);border-radius:14px;max-width:720px}
+.notfor-title{font-size:1rem;font-weight:700;color:var(--danger);margin-bottom:18px;letter-spacing:-.01em}
+.notfor-list{display:flex;flex-direction:column;gap:12px}
+.notfor-list li{font-size:.91rem;color:var(--muted);padding-left:22px;position:relative;font-weight:500}
+.notfor-list li::before{content:'';position:absolute;left:0;top:9px;width:8px;height:1px;background:var(--danger)}
+
+/* ══════════════════════════════
+   URGENCY
+══════════════════════════════ */
+.urgency-box{max-width:840px;margin:0 auto;padding:48px;background:rgba(11,22,40,.8);border:1px solid var(--blue-border);border-radius:20px;backdrop-filter:blur(16px);box-shadow:0 0 60px var(--blue-glow);position:relative;overflow:hidden}
+.urgency-box::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--blue),var(--gold),var(--blue),transparent)}
+.ev-info{display:flex;flex-wrap:wrap;justify-content:center;gap:14px;margin:36px 0 40px}
+.ev-item{display:flex;flex-direction:column;align-items:center;gap:4px;padding:18px 28px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:10px;min-width:110px;text-align:center;transition:border-color .2s,background .2s}
+.ev-item:hover{border-color:var(--gold-border);background:var(--gold-glow)}
+.ev-ic{font-size:1.3rem;margin-bottom:2px}
+.ev-lbl{font-size:.67rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--muted2)}
+.ev-item strong{font-size:.92rem;font-weight:700;color:var(--white)}
+
+/* ══════════════════════════════
+   FAQ
+══════════════════════════════ */
+.faq-list{max-width:780px;margin:52px auto 0;display:flex;flex-direction:column;gap:10px}
+.faq-item{background:rgba(11,22,40,.6);border:1px solid rgba(255,255,255,.08);border-radius:12px;overflow:hidden;transition:border-color .25s,box-shadow .25s;backdrop-filter:blur(8px)}
+.faq-item.open{border-color:var(--gold-border);box-shadow:0 0 24px var(--gold-glow)}
+.faq-q{width:100%;display:flex;justify-content:space-between;align-items:center;padding:22px 26px;background:none;border:none;font-family:var(--font);font-size:.95rem;font-weight:600;color:var(--white);cursor:pointer;text-align:left;gap:16px;transition:color .2s}
+.faq-q:hover,.faq-q:focus-visible{color:var(--gold-light);outline:none}
+.faq-icon{width:28px;height:28px;border-radius:50%;border:1px solid rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:border-color .25s,background .25s}
+.faq-item.open .faq-icon{border-color:var(--gold-border);background:var(--gold-pale)}
+.faq-icon svg{width:12px;height:12px;stroke:var(--muted);transition:transform .3s,stroke .25s}
+.faq-item.open .faq-icon svg{transform:rotate(45deg);stroke:var(--gold)}
+.faq-a{padding:0 26px 22px;font-size:.92rem;color:var(--muted);display:none;line-height:1.8;font-weight:500;border-top:1px solid rgba(255,255,255,.05);padding-top:16px;margin:0 26px}
+.faq-item.open .faq-a{display:block}
+
+/* ══════════════════════════════
+   FOOTER
+══════════════════════════════ */
+.footer{background:var(--black);border-top:1px solid rgba(201,168,76,.15);padding:52px 0;text-align:center;position:relative}
+.footer::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:200px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.footer-in{display:flex;flex-direction:column;align-items:center;gap:10px}
+.footer-brand{font-size:1.1rem;font-weight:800;color:var(--white);letter-spacing:-.02em}
+.footer-gold{color:var(--gold)}
+.footer-tag{font-size:.82rem;color:var(--muted2);font-weight:500;margin-top:2px}
+.footer-links{display:flex;gap:28px;margin-top:12px}
+.footer-link{font-size:.78rem;color:var(--muted2);font-weight:500;transition:color .2s}
+.footer-link:hover{color:var(--gold-light);text-decoration:none}
+.footer-copy{font-size:.75rem;color:var(--muted2);margin-top:4px}
+
+/* ══════════════════════════════
+   MOBILE CTA
+══════════════════════════════ */
+.mob-cta{display:none;position:fixed;bottom:0;left:0;right:0;padding:14px 18px calc(14px + env(safe-area-inset-bottom));background:linear-gradient(to top,var(--black) 60%,transparent);z-index:90;pointer-events:none;opacity:0;transform:translateY(100%);transition:opacity .35s,transform .35s}
+.mob-cta.show{pointer-events:auto;opacity:1;transform:translateY(0)}
+@media(max-width:768px){.mob-cta{display:block}}
+
+/* ══════════════════════════════
+   MODAL
+══════════════════════════════ */
+.overlay{position:fixed;inset:0;background:rgba(5,8,15,.9);backdrop-filter:blur(8px);z-index:200;display:flex;align-items:center;justify-content:center;padding:20px;opacity:0;pointer-events:none;transition:opacity .3s}
+.overlay.open{opacity:1;pointer-events:auto}
+.modal{background:linear-gradient(160deg,#0C1930 0%,#080E1A 100%);border:1px solid var(--blue-border);border-radius:20px;padding:44px 40px;width:100%;max-width:500px;position:relative;box-shadow:0 0 80px rgba(36,99,235,.25),0 0 160px rgba(201,168,76,.06),0 32px 80px rgba(0,0,0,.8);transform:translateY(28px) scale(.96);transition:transform .4s cubic-bezier(.34,1.56,.64,1),opacity .3s;opacity:0;max-height:92svh;overflow-y:auto}
+.modal::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--blue-bright),var(--gold),var(--blue-bright),transparent);border-radius:20px 20px 0 0}
+.overlay.open .modal{transform:translateY(0) scale(1);opacity:1}
+.modal-close{position:absolute;top:18px;right:18px;width:36px;height:36px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:50%;color:var(--muted);font-size:.9rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s;font-family:var(--font)}
+.modal-close:hover,.modal-close:focus-visible{background:rgba(255,255,255,.12);color:var(--white);border-color:var(--gold-border);outline:none}
+.modal-hd{margin-bottom:32px}
+.modal-tag{display:inline-flex;align-items:center;gap:6px;padding:5px 14px;background:var(--gold-pale);border:1px solid var(--gold-border);border-radius:100px;font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gold-light);margin-bottom:16px}
+.modal-title{font-size:clamp(1.4rem,4vw,1.85rem);font-weight:800;color:var(--white);letter-spacing:-.025em;margin-bottom:10px;line-height:1.2}
+.modal-sub{font-size:.9rem;color:var(--muted);font-weight:500}
+.form-wrap{display:flex;flex-direction:column;gap:16px}
+.field{display:flex;flex-direction:column;gap:7px}
+.field label{font-size:.72rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.09em}
+.field input{padding:14px 18px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:8px;font-family:var(--font);font-size:.95rem;color:var(--white);font-weight:500;transition:border-color .2s,box-shadow .2s;outline:none}
+.field input::placeholder{color:var(--muted2)}
+.field input:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(36,99,235,.18)}
+.field input.inv{border-color:var(--danger);box-shadow:0 0 0 3px rgba(239,86,86,.15)}
+.ferr{font-size:.76rem;color:var(--danger);min-height:1em;font-weight:500}
+.modal-micro{font-size:.76rem;color:var(--muted2);text-align:center;margin-top:4px;font-weight:500}
+.ldg{display:none;flex-direction:column;align-items:center;gap:18px;padding:48px 0;color:var(--muted);font-size:.92rem;font-weight:500}
+.ldg.show{display:flex}
+@keyframes spin{to{transform:rotate(360deg)}}
+.spinner{width:38px;height:38px;border:2.5px solid rgba(201,168,76,.2);border-top-color:var(--gold);border-radius:50%;animation:spin .9s linear infinite}
+@media(prefers-reduced-motion:reduce){.spinner{animation:none;border-top-color:var(--gold)}}
+
+/* ══════════════════════════════
+   RESPONSIVE
+══════════════════════════════ */
+@media(max-width:1100px){
+  .auth-in{grid-template-columns:1fr;text-align:center;gap:48px}
+  .auth-vis{width:260px;margin:0 auto}
+  .auth-frame::before,.auth-frame::after{display:none}
+  .auth-copy .sec-title-left,.auth-copy .sec-body-left{text-align:center}
+  .auth-badges{align-items:center}
+  .fcard-t{left:-4%}.fcard-b{right:-4%}
+}
+@media(max-width:840px){
+  .sec{padding:80px 0}
+  .hero{padding:80px 0 80px;min-height:auto}
+  .hero-in{grid-template-columns:1fr;text-align:center;gap:44px}
+  .hero-copy{align-items:center;order:2}
+  .hero-vis{order:1;min-height:300px}
+  .hero-sub{text-align:center}
+  .pills{justify-content:center}
+  .hero-micro{justify-content:center}
+  .hero-divider{margin:20px auto 24px}
+  .hero-title{max-width:100%}
+  .hero-photo{max-height:300px}
+  .fcard{font-size:.75rem;padding:10px 14px}
+  .fcard-t{top:2%;left:2%}.fcard-b{bottom:2%;right:2%}
+  .days-track{grid-template-columns:1fr}
+  .days-connector{display:none}
+  .urgency-box{padding:32px 24px}
+  .modal{padding:32px 24px;border-radius:16px}
+  .modal-title{font-size:1.35rem}
+}
+@media(max-width:480px){
+  .pills .pill:nth-child(n+4){display:none}
+  .wrap{padding:0 16px}
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════ HERO ═══════ -->
+<section class="hero" id="topo" aria-label="Seção principal">
+  <canvas id="hcv" aria-hidden="true"></canvas>
+  <div class="wrap hero-in">
+
+    <div class="hero-copy">
+      <div class="hero-eyebrow">
+        <span class="hero-eyebrow-line" aria-hidden="true"></span>
+        <span class="hero-eyebrow-text">Imersão online e gratuita</span>
+      </div>
+      <h1 class="hero-title">Descubra em <span>2 dias</span> o que está travando o crescimento do seu negócio</h1>
+      <div class="hero-divider" aria-hidden="true"></div>
+      <p class="hero-sub">Uma experiência online e gratuita com Erico Theophilo para você identificar qual parte da sua estrutura precisa ser organizada primeiro e como começar a construir um negócio mais sólido, lucrativo e com direção.</p>
+      <div class="pills">
+        <span class="pill"><span class="pill-icon">📅</span>15 e 16 de junho</span>
+        <span class="pill"><span class="pill-icon">🕖</span>Às 19h</span>
+        <span class="pill"><span class="pill-icon">💻</span>Online e gratuito</span>
+        <span class="pill"><span class="pill-icon">⚡</span>Método 12Vs</span>
+      </div>
+      <button class="btn btn-p btn-pulse js-open" aria-haspopup="dialog">Quero descobrir minha trava principal</button>
+      <p class="hero-micro">Inscrição gratuita. As orientações serão enviadas após o cadastro.</p>
+    </div>
+
+    <div class="hero-vis" aria-hidden="true">
+      <div class="hero-glow"></div>
+      <div class="hero-gold-glow"></div>
+      <div class="hero-ring"></div>
+      <div class="hero-ring2"></div>
+      <!-- TROQUE: cole aqui a URL da foto real do Erico -->
+      <img class="hero-photo" src="https://placehold.co/460x560/0A1628/60A5FA?text=Erico+Theophilo" alt="Erico Theophilo" width="460" height="560" loading="eager"/>
+      <div class="fcard fcard-t flt">
+        <div class="fcard-icon">🔍</div>
+        <div class="fcard-text"><span class="fcard-label">Diagnóstico</span><span>Método 12Vs</span></div>
+      </div>
+      <div class="fcard fcard-b flt">
+        <div class="fcard-icon">🧭</div>
+        <div class="fcard-text"><span class="fcard-label">Resultado</span><span>Clareza para o próximo passo</span></div>
+      </div>
+    </div>
+
+  </div>
+  <div class="scroll-hint" aria-hidden="true"><span>Role para baixo</span><div class="scroll-arrow"></div></div>
+</section>
+
+<!-- ═══════ DOR ═══════ -->
+<section class="sec sec-alt" aria-label="Identificação de dores">
+  <div class="wrap">
+    <div class="rv"><span class="gold-line" aria-hidden="true"></span></div>
+    <h2 class="sec-title rv">Talvez você não precise de mais uma ideia.<br>Talvez precise entender onde está o gargalo.</h2>
+    <p class="sec-body rv">Quando o negócio trava, é comum tentar resolver tudo ao mesmo tempo: vender mais, postar mais, anunciar mais, mudar a oferta, baixar preço ou trabalhar ainda mais. Mas, muitas vezes, o problema está em uma parte da estrutura que ainda não foi organizada.</p>
+    <div class="pain-grid">
+      <div class="pain-card rv">
+        <div class="pain-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>
+        Você trabalha muito, mas sente que o negócio ainda depende demais de você.
+      </div>
+      <div class="pain-card rv">
+        <div class="pain-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>
+        Você sabe que pode ganhar mais, mas não sabe o que organizar primeiro.
+      </div>
+      <div class="pain-card rv">
+        <div class="pain-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>
+        Você tem dificuldade para vender o valor do que faz.
+      </div>
+      <div class="pain-card rv">
+        <div class="pain-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>
+        Você quer cobrar melhor, mas ainda sente insegurança.
+      </div>
+      <div class="pain-card rv">
+        <div class="pain-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>
+        Você quer crescer, mas sente que falta direção.
+      </div>
+      <div class="pain-card rv">
+        <div class="pain-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>
+        Você percebe que está improvisando mais do que estruturando.
+      </div>
+    </div>
+    <p class="sec-impact rv">Antes de acelerar, você precisa saber exatamente o que está travando.</p>
+  </div>
+</section>
+
+<!-- ═══════ MÉTODO ═══════ -->
+<section class="sec" aria-label="Método 12Vs">
+  <div class="wrap">
+    <div class="rv"><span class="gold-line" aria-hidden="true"></span></div>
+    <h2 class="sec-title rv">O Método 12Vs mostra onde sua evolução está travando</h2>
+    <p class="sec-body rv">Durante a Imersão Futuros Donos, Erico Theophilo vai conduzir você por uma visão prática dos 12Vs, pilares que ajudam a identificar quais partes da sua jornada precisam ser organizadas para que você cresça com mais clareza, estrutura e direção.</p>
+    <div class="vs-grid">
+      <div class="vs-card rv"><span class="vs-letter">V</span>Visão</div>
+      <div class="vs-card rv"><span class="vs-letter">V</span>Valor</div>
+      <div class="vs-card rv"><span class="vs-letter">V</span>Venda</div>
+      <div class="vs-card rv"><span class="vs-letter">V</span>Voz</div>
+      <div class="vs-card rv"><span class="vs-letter">V</span>Verdade</div>
+      <div class="vs-card rv"><span class="vs-letter">V</span>Vínculo</div>
+      <div class="vs-card rv"><span class="vs-letter">V</span>Vitrine</div>
+      <div class="vs-card rv"><span class="vs-letter">V</span>Velocidade</div>
+      <div class="vs-card rv"><span class="vs-letter">V</span>Validação</div>
+      <div class="vs-card rv"><span class="vs-letter">V</span>Viabilidade</div>
+      <div class="vs-card rv"><span class="vs-letter">V</span>Volume</div>
+      <div class="vs-card rv"><span class="vs-letter">V</span>Vantagem</div>
+    </div>
+    <p class="sec-callout rv">Você não precisa corrigir tudo ao mesmo tempo. Precisa descobrir qual parte vem primeiro.</p>
+    <div class="center rv"><button class="btn btn-p js-open" aria-haspopup="dialog">Quero identificar minha trava principal</button></div>
+  </div>
+</section>
+
+<!-- ═══════ 2 DIAS ═══════ -->
+<section class="sec sec-alt" aria-label="Os dois dias">
+  <div class="wrap">
+    <div class="rv"><span class="gold-line" aria-hidden="true"></span></div>
+    <h2 class="sec-title rv">O que você vai descobrir durante a imersão</h2>
+    <div class="days-track">
+      <div class="day-card rv">
+        <div class="day-badge">Dia 1</div>
+        <h3 class="day-title">O que está travando sua evolução</h3>
+        <ul class="day-list">
+          <li>Por que ser bom tecnicamente não garante crescimento.</li>
+          <li>Como identificar se o problema está na clareza, oferta, comunicação, venda ou estrutura.</li>
+          <li>O erro de tentar vender mais sem antes organizar a base.</li>
+          <li>Como começar a enxergar o negócio com mais maturidade.</li>
+        </ul>
+      </div>
+      <div class="days-connector rv"><div class="days-connector-line"></div><div class="days-connector-dot"></div><div class="days-connector-line"></div></div>
+      <div class="day-card rv">
+        <div class="day-badge">Dia 2</div>
+        <h3 class="day-title">Como organizar o próximo passo</h3>
+        <ul class="day-list">
+          <li>Como transformar conhecimento em negócio.</li>
+          <li>Como vender melhor sem depender apenas de indicação.</li>
+          <li>Como cobrar com mais segurança.</li>
+          <li>Como estruturar um negócio mais sólido, lucrativo e com direção.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ AUTORIDADE ═══════ -->
+<section class="sec" aria-label="Sobre Erico Theophilo">
+  <div class="wrap auth-in">
+    <div class="auth-vis rv">
+      <div class="auth-glow"></div>
+      <div class="auth-frame">
+        <!-- TROQUE: cole aqui a URL da foto real do Erico -->
+        <img class="auth-photo" src="https://placehold.co/400x480/0A1628/C9A84C?text=Erico+Theophilo" alt="Erico Theophilo, mentor da imersão" width="400" height="480" loading="lazy"/>
+      </div>
+    </div>
+    <div class="auth-copy">
+      <span class="tag rv">Quem vai conduzir a imersão</span>
+      <h2 class="sec-title sec-title-left rv">Erico Theophilo</h2>
+      <div class="rv"><div class="hero-divider gold-line-left" style="width:40px;margin-bottom:24px"></div></div>
+      <p class="sec-body sec-body-left rv">Erico Theophilo é empresário, mentor, palestrante e criador do Método 12Vs. Em sua trajetória, já ajudou empresários, profissionais e pessoas em processo de crescimento a enxergarem com mais clareza seus desafios, suas travas e seus próximos passos.</p>
+      <p class="sec-body sec-body-left rv">A proposta da imersão não é entregar mais uma fórmula pronta. É ajudar você a entender, com profundidade e clareza, qual parte da sua estrutura precisa ser organizada primeiro.</p>
+      <div class="auth-badges rv">
+        <div class="auth-badge"><div class="auth-badge-icon">⚡</div>Criador do Método 12Vs</div>
+        <div class="auth-badge"><div class="auth-badge-icon">🏢</div>Mentor e empresário</div>
+        <div class="auth-badge"><div class="auth-badge-icon">📈</div>Experiência prática em crescimento e posicionamento</div>
+        <div class="auth-badge"><div class="auth-badge-icon">🎯</div>Visão estratégica para negócios e pessoas</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ PARA QUEM ═══════ -->
+<section class="sec sec-alt" aria-label="Para quem é">
+  <div class="wrap">
+    <div class="rv"><span class="gold-line" aria-hidden="true"></span></div>
+    <h2 class="sec-title rv">Essa imersão é para você se…</h2>
+    <div class="fw-grid">
+      <div class="ck-card rv"><div class="ck-icon"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>Você é empresário, profissional liberal, PJ ou prestador de serviço.</div>
+      <div class="ck-card rv"><div class="ck-icon"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>Você quer crescer, mas sente que falta clareza.</div>
+      <div class="ck-card rv"><div class="ck-icon"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>Você quer vender melhor e cobrar com mais segurança.</div>
+      <div class="ck-card rv"><div class="ck-icon"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>Você quer parar de improvisar e começar a estruturar.</div>
+      <div class="ck-card rv"><div class="ck-icon"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>Você sente que pode mais, mas ainda não sabe exatamente qual caminho seguir.</div>
+      <div class="ck-card rv"><div class="ck-icon"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>Você quer construir um negócio mais sólido, lucrativo e com direção.</div>
+    </div>
+    <div class="notfor rv">
+      <p class="notfor-title">Essa imersão não é para você se…</p>
+      <ul class="notfor-list">
+        <li>Você procura fórmula mágica.</li>
+        <li>Você quer resultado sem olhar para a estrutura.</li>
+        <li>Você não está disposto a encarar com sinceridade o momento atual do seu negócio.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ URGÊNCIA ═══════ -->
+<section class="sec" aria-label="Inscrição">
+  <div class="wrap">
+    <div class="urgency-box rv">
+      <div class="rv"><span class="gold-line" aria-hidden="true"></span></div>
+      <h2 class="sec-title rv">Você pode continuar tentando crescer no improviso ou pode descobrir o que precisa ser organizado primeiro.</h2>
+      <p class="sec-body rv">Em apenas 2 dias, você terá uma visão mais clara sobre os pontos que podem estar travando sua evolução e sobre o próximo passo para crescer com mais direção.</p>
+      <div class="ev-info rv">
+        <div class="ev-item"><span class="ev-ic">📅</span><span class="ev-lbl">Data</span><strong>15 e 16 de junho</strong></div>
+        <div class="ev-item"><span class="ev-ic">🕖</span><span class="ev-lbl">Horário</span><strong>19h</strong></div>
+        <div class="ev-item"><span class="ev-ic">💻</span><span class="ev-lbl">Formato</span><strong>Online</strong></div>
+        <div class="ev-item"><span class="ev-ic">🎟️</span><span class="ev-lbl">Investimento</span><strong>Gratuito</strong></div>
+      </div>
+      <div class="center rv"><button class="btn btn-p btn-pulse js-open" aria-haspopup="dialog">Quero participar da imersão gratuita</button></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ FAQ ═══════ -->
+<section class="sec sec-alt" aria-label="Perguntas frequentes">
+  <div class="wrap">
+    <div class="rv"><span class="gold-line" aria-hidden="true"></span></div>
+    <h2 class="sec-title rv">Perguntas frequentes</h2>
+    <div class="faq-list">
+      <div class="faq-item rv">
+        <button class="faq-q" aria-expanded="false">A imersão é gratuita?<span class="faq-icon"><svg viewBox="0 0 12 12"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg></span></button>
+        <div class="faq-a"><p>Sim, a participação é 100% gratuita.</p></div>
+      </div>
+      <div class="faq-item rv">
+        <button class="faq-q" aria-expanded="false">Onde vai acontecer?<span class="faq-icon"><svg viewBox="0 0 12 12"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg></span></button>
+        <div class="faq-a"><p>A imersão será online. As orientações serão enviadas após a inscrição.</p></div>
+      </div>
+      <div class="faq-item rv">
+        <button class="faq-q" aria-expanded="false">Para quem é essa imersão?<span class="faq-icon"><svg viewBox="0 0 12 12"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg></span></button>
+        <div class="faq-a"><p>Para empresários, profissionais liberais, PJs e prestadores de serviço que querem crescer com mais clareza, estrutura e direção.</p></div>
+      </div>
+      <div class="faq-item rv">
+        <button class="faq-q" aria-expanded="false">Preciso conhecer o Método 12Vs?<span class="faq-icon"><svg viewBox="0 0 12 12"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg></span></button>
+        <div class="faq-a"><p>Não. Durante a imersão, Erico vai apresentar a lógica do método de forma prática e simples.</p></div>
+      </div>
+      <div class="faq-item rv">
+        <button class="faq-q" aria-expanded="false">O que eu vou receber depois de me cadastrar?<span class="faq-icon"><svg viewBox="0 0 12 12"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg></span></button>
+        <div class="faq-a"><p>Você receberá as orientações para acompanhar a imersão e os avisos importantes.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ FOOTER ═══════ -->
+<footer class="footer">
+  <div class="wrap footer-in">
+    <p class="footer-brand">Imersão <span class="footer-gold">Futuros Donos</span></p>
+    <p class="footer-tag">Online e gratuito. 15 e 16 de junho, às 19h.</p>
+    <nav class="footer-links">
+      <a href="#" class="footer-link">Política de Privacidade</a>
+      <a href="#" class="footer-link">Termos de Uso</a>
+    </nav>
+    <p class="footer-copy">© 2025 Erico Theophilo. Todos os direitos reservados.</p>
+  </div>
+</footer>
+
+<!-- Mobile CTA -->
+<div class="mob-cta" id="mob-cta" aria-hidden="true">
+  <button class="btn btn-p btn-full js-open" aria-haspopup="dialog" tabindex="-1">Quero participar gratuitamente</button>
+</div>
+
+<!-- ═══════ MODAL ═══════ -->
+<div class="overlay" id="overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-hidden="true">
+  <div class="modal" id="modal-box">
+    <button class="modal-close js-close" aria-label="Fechar formulário">&#x2715;</button>
+    <div class="modal-hd">
+      <div class="modal-tag">Inscrição gratuita</div>
+      <h2 class="modal-title" id="modal-title">Garanta sua inscrição gratuita</h2>
+      <p class="modal-sub">Preencha seus dados para receber as orientações da Imersão Futuros Donos.</p>
+    </div>
+    <div class="form-wrap" id="form-wrap">
+      <div class="field">
+        <label for="f-name">Seu nome</label>
+        <input type="text" id="f-name" autocomplete="name" placeholder="Nome completo" aria-required="true"/>
+        <span class="ferr" id="e-name" role="alert" aria-live="polite"></span>
+      </div>
+      <div class="field">
+        <label for="f-email">Seu e-mail</label>
+        <input type="email" id="f-email" autocomplete="email" placeholder="seu@email.com" aria-required="true"/>
+        <span class="ferr" id="e-email" role="alert" aria-live="polite"></span>
+      </div>
+      <div class="field">
+        <label for="f-wa">Seu WhatsApp</label>
+        <input type="tel" id="f-wa" autocomplete="tel" placeholder="(11) 9 9999-9999" inputmode="numeric" aria-required="true"/>
+        <span class="ferr" id="e-wa" role="alert" aria-live="polite"></span>
+      </div>
+      <button class="btn btn-p btn-full" id="sub-btn" type="button">Garantir minha inscrição gratuita</button>
+      <p class="modal-micro">Após o cadastro, você será direcionado para a próxima etapa.</p>
+    </div>
+    <div class="ldg" id="ldg"><div class="spinner"></div><p>Enviando seus dados...</p></div>
+  </div>
+</div>
+
+<script>
+const THANK_YOU_PAGE_URL="COLE_AQUI_A_URL_DA_PAGINA_DE_OBRIGADO";
+const FORM_ENDPOINT="";
+
+/* ── Canvas particles ── */
+(function(){
+  if(window.matchMedia("(prefers-reduced-motion:reduce)").matches)return;
+  const cv=document.getElementById("hcv");if(!cv)return;
+  const ctx=cv.getContext("2d");let pts=[],af;
+  function resize(){cv.width=cv.offsetWidth;cv.height=cv.offsetHeight}
+  function mkPts(){
+    pts=[];
+    const n=Math.min(70,Math.floor(cv.width*cv.height/14000));
+    for(let i=0;i<n;i++){
+      const isGold=Math.random()<.15;
+      pts.push({x:Math.random()*cv.width,y:Math.random()*cv.height,r:Math.random()*1.4+.3,vx:(Math.random()-.5)*.18,vy:(Math.random()-.5)*.18,a:Math.random()*.35+.08,gold:isGold});
+    }
+  }
+  function draw(){
+    ctx.clearRect(0,0,cv.width,cv.height);
+    pts.forEach(p=>{
+      ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+      ctx.fillStyle=p.gold?"rgba(201,168,76,"+p.a+")":"rgba(59,123,248,"+p.a+")";
+      ctx.fill();
+      p.x+=p.vx;p.y+=p.vy;
+      if(p.x<0)p.x=cv.width;if(p.x>cv.width)p.x=0;
+      if(p.y<0)p.y=cv.height;if(p.y>cv.height)p.y=0;
+    });
+    af=requestAnimationFrame(draw);
+  }
+  window.addEventListener("resize",()=>{resize();mkPts()});
+  resize();mkPts();draw();
+  const hero=document.querySelector(".hero");
+  if(hero&&"IntersectionObserver"in window){
+    new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){if(!af)draw();}else{cancelAnimationFrame(af);af=null;}}),{threshold:0}).observe(hero);
+  }
+})();
+
+/* ── Scroll reveal ── */
+(function(){
+  if(!("IntersectionObserver"in window)){document.querySelectorAll(".rv").forEach(e=>e.classList.add("on"));return;}
+  const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("on");obs.unobserve(e.target);}}),{threshold:.08,rootMargin:"0px 0px -32px 0px"});
+  document.querySelectorAll(".rv").forEach(e=>obs.observe(e));
+})();
+
+/* ── Mobile CTA ── */
+(function(){
+  const bar=document.getElementById("mob-cta");const hero=document.querySelector(".hero");
+  if(!bar||!hero||window.innerWidth>840)return;
+  if("IntersectionObserver"in window){
+    new IntersectionObserver(es=>es.forEach(e=>{
+      const b=bar.querySelector("button");
+      if(!e.isIntersecting){bar.classList.add("show");bar.setAttribute("aria-hidden","false");b.removeAttribute("tabindex");}
+      else{bar.classList.remove("show");bar.setAttribute("aria-hidden","true");b.setAttribute("tabindex","-1");}
+    }),{threshold:0}).observe(hero);
+  }
+})();
+
+/* ── Modal ── */
+const ov=document.getElementById("overlay");let pf;
+function openMod(){pf=document.activeElement;ov.classList.add("open");ov.setAttribute("aria-hidden","false");document.body.style.overflow="hidden";setTimeout(()=>{const f=document.getElementById("f-name");if(f)f.focus();},400);}
+function closeMod(){ov.classList.remove("open");ov.setAttribute("aria-hidden","true");document.body.style.overflow="";if(pf)pf.focus();}
+document.querySelectorAll(".js-open").forEach(b=>b.addEventListener("click",openMod));
+document.querySelectorAll(".js-close").forEach(b=>b.addEventListener("click",closeMod));
+ov.addEventListener("click",e=>{if(e.target===ov)closeMod();});
+document.addEventListener("keydown",e=>{if(e.key==="Escape"&&ov.classList.contains("open"))closeMod();});
+
+/* ── Form ── */
+const fi=document.getElementById("f-name"),fe=document.getElementById("f-email"),fw=document.getElementById("f-wa");
+const ei=document.getElementById("e-name"),ee=document.getElementById("e-email"),ew=document.getElementById("e-wa");
+fw.addEventListener("input",e=>{let v=e.target.value.replace(/\D/g,"").slice(0,11);let f="";if(v.length>0)f="("+v.slice(0,2);if(v.length>=3)f+=") "+v.slice(2,3);if(v.length>=4)f+=" "+v.slice(3,7);if(v.length>=8)f+="-"+v.slice(7,11);if(v.length<=2)f="("+v;e.target.value=f;});
+function setErr(inp,el,msg){el.textContent=msg;inp.classList.toggle("inv",!!msg);}
+function valName(){const v=fi.value.trim();if(!v){setErr(fi,ei,"Informe seu nome.");return false;}if(v.length<2){setErr(fi,ei,"Nome muito curto.");return false;}setErr(fi,ei,"");return true;}
+function valEmail(){const v=fe.value.trim();if(!v){setErr(fe,ee,"Informe seu e-mail.");return false;}if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)){setErr(fe,ee,"E-mail inválido.");return false;}setErr(fe,ee,"");return true;}
+function valWa(){const v=fw.value.replace(/\D/g,"");if(!v){setErr(fw,ew,"Informe seu WhatsApp.");return false;}if(v.length<10){setErr(fw,ew,"Número inválido.");return false;}setErr(fw,ew,"");return true;}
+fi.addEventListener("blur",valName);fe.addEventListener("blur",valEmail);fw.addEventListener("blur",valWa);
+fi.addEventListener("input",()=>{if(fi.classList.contains("inv"))valName();});
+fe.addEventListener("input",()=>{if(fe.classList.contains("inv"))valEmail();});
+fw.addEventListener("input",()=>{if(fw.classList.contains("inv"))valWa();});
+document.getElementById("sub-btn").addEventListener("click",async()=>{
+  const ok=valName()&valEmail()&valWa();
+  if(!ok){if(fi.classList.contains("inv"))fi.focus();else if(fe.classList.contains("inv"))fe.focus();else fw.focus();return;}
+  const data={name:fi.value.trim(),email:fe.value.trim().toLowerCase(),whatsapp:fw.value.trim(),source:"imersao-futuros-donos",timestamp:new Date().toISOString()};
+  document.getElementById("form-wrap").style.display="none";document.getElementById("ldg").classList.add("show");
+  if(FORM_ENDPOINT&&!FORM_ENDPOINT.startsWith("COLE")){try{await fetch(FORM_ENDPOINT,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(data)});}catch(e){}}
+  else{await new Promise(r=>setTimeout(r,900));}
+  window.location.href=(THANK_YOU_PAGE_URL&&!THANK_YOU_PAGE_URL.startsWith("COLE"))?THANK_YOU_PAGE_URL:"#topo";
+});
+
+/* ── FAQ ── */
+document.querySelectorAll(".faq-q").forEach(btn=>{
+  btn.addEventListener("click",()=>{
+    const item=btn.closest(".faq-item");const open=item.classList.contains("open");
+    document.querySelectorAll(".faq-item").forEach(i=>{i.classList.remove("open");i.querySelector(".faq-q").setAttribute("aria-expanded","false");});
+    if(!open){item.classList.add("open");btn.setAttribute("aria-expanded","true");}
+  });
+});
+</script>
+</body>
+</html>
