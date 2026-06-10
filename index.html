@@ -497,7 +497,7 @@ p{color:var(--muted);font-weight:500}
 
 <script>
 /* ── CONFIGURAÇÕES ── */
-const MC_URL="https://gmail.us8.list-manage.com/subscribe/post?u=SUBSTITUIR_U&id=4c75ad189a";
+const MC_URL="https://gmail.us8.list-manage.com/subscribe/post?u=e6d596fa01e300943fa2466ba&id=4c75ad189a&f_id=005111e1f0";
 const THANKS="https://www.ericotheophilo.com/proximopasso";
 
 /* ── Canvas ── */
@@ -559,7 +559,7 @@ document.getElementById("sub-btn").addEventListener("click",async()=>{
     fd.append("EMAIL",fe.value.trim().toLowerCase());
     fd.append("FNAME",fi.value.trim());
     fd.append("PHONE",fw.value.trim());
-    fd.append("b_SUBSTITUIR_U_4c75ad189a","");
+    fd.append("b_e6d596fa01e300943fa2466ba_4c75ad189a","");
     const url=MC_URL.replace("/post?","/post-json?")+"&c=?";
     await fetch(url+"&EMAIL="+encodeURIComponent(fe.value.trim())+"&FNAME="+encodeURIComponent(fi.value.trim()),{mode:"no-cors"});
   }catch(e){}
