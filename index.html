@@ -66,7 +66,7 @@ p{color:var(--muted);font-weight:500}
 #hcv{position:absolute;inset:0;pointer-events:none;z-index:0}
 .hero::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(36,99,235,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(36,99,235,.04) 1px,transparent 1px);background-size:72px 72px;z-index:0;mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,black 0%,transparent 100%)}
 .hero::after{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent 0%,var(--gold) 40%,var(--gold-light) 50%,var(--gold) 60%,transparent 100%);z-index:2}
-.hero-in{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;position:relative;z-index:1}
+.hero-in{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;position:relative;z-index:1;width:100%}
 .hero-copy{display:flex;flex-direction:column;align-items:flex-start}
 .hero-eyebrow{display:flex;align-items:center;gap:12px;margin-bottom:20px}
 .hero-eyebrow-line{width:32px;height:1px;background:var(--gold);flex-shrink:0}
@@ -226,12 +226,12 @@ p{color:var(--muted);font-weight:500}
 }
 @media(max-width:840px){
   .sec{padding:64px 0}
-  .hero{padding:72px 0 48px;min-height:auto}
+  .hero{padding:72px 0 48px;min-height:auto;overflow-x:hidden}
   .hero-in{grid-template-columns:1fr;text-align:center;gap:24px}
-  .hero-copy{align-items:center;order:2;width:100%}
+  .hero-copy{align-items:center;order:2;width:100%;padding:0;display:flex;flex-direction:column}
   .hero-vis{order:1;min-height:auto}
   .hero-sub{text-align:center;font-size:.95rem}
-  .pills{justify-content:center;gap:8px;flex-wrap:wrap}
+  .pills{justify-content:center;gap:8px;flex-wrap:wrap;width:100%}
   .pill{font-size:.72rem;padding:6px 12px}
   .hero-micro{justify-content:center;font-size:.74rem}
   .hero-divider{margin:16px auto 20px}
@@ -239,7 +239,7 @@ p{color:var(--muted);font-weight:500}
   .hero-photo{max-height:260px;width:auto;margin:0 auto}
   .fcard{font-size:.7rem;padding:8px 12px;gap:8px}
   .fcard-t{top:2%;left:1%}.fcard-b{bottom:2%;right:1%}
-  .btn{padding:14px 20px;font-size:.88rem;width:100%;max-width:100%;box-sizing:border-box}
+  .btn{padding:14px 20px;font-size:.88rem;width:100%;max-width:100%;box-sizing:border-box;margin-left:0;margin-right:0}
   .days-track{grid-template-columns:1fr}
   .days-connector{display:none}
   .day-card{padding:24px 20px}
@@ -250,7 +250,7 @@ p{color:var(--muted);font-weight:500}
   .modal-title{font-size:1.2rem}
   .modal-hd{margin-bottom:20px}
   .notfor{padding:20px 16px}
-  .wrap{padding:0 16px}
+  .wrap{padding:0 20px;width:100%}
   .faq-q{padding:16px 18px;font-size:.88rem}
   .faq-a{padding:0 18px 16px;margin:0 18px}
   .sec-title{font-size:clamp(1.3rem,5.5vw,2rem)}
@@ -566,21 +566,32 @@ fi.addEventListener("input",()=>{if(fi.classList.contains("inv"))valName();});
 fe.addEventListener("input",()=>{if(fe.classList.contains("inv"))valEmail();});
 fw.addEventListener("input",()=>{if(fw.classList.contains("inv"))valWa();});
 
-document.getElementById("sub-btn").addEventListener("click",async()=>{
+document.getElementById("sub-btn").addEventListener("click",()=>{
   const ok=valName()&valEmail()&valWa();
   if(!ok){if(fi.classList.contains("inv"))fi.focus();else if(fe.classList.contains("inv"))fe.focus();else fw.focus();return;}
   document.getElementById("form-wrap").style.display="none";
   document.getElementById("ldg").classList.add("show");
-  try{
-    const fd=new FormData();
-    fd.append("EMAIL",fe.value.trim().toLowerCase());
-    fd.append("FNAME",fi.value.trim());
-    fd.append("PHONE",fw.value.trim());
-    fd.append("b_e6d596fa01e300943fa2466ba_4c75ad189a","");
-    const url=MC_URL.replace("/post?","/post-json?")+"&c=?";
-    await fetch(url+"&EMAIL="+encodeURIComponent(fe.value.trim())+"&FNAME="+encodeURIComponent(fi.value.trim()),{mode:"no-cors"});
-  }catch(e){}
-  setTimeout(()=>{window.location.href=THANKS;},600);
+
+  const cbName="mc_cb_"+Date.now();
+  const url=MC_URL.replace("/post?","/post-json?")
+    +"&EMAIL="+encodeURIComponent(fe.value.trim().toLowerCase())
+    +"&FNAME="+encodeURIComponent(fi.value.trim())
+    +"&PHONE="+encodeURIComponent(fw.value.trim())
+    +"&b_e6d596fa01e300943fa2466ba_4c75ad189a="
+    +"&c="+cbName;
+
+  window[cbName]=function(){
+    delete window[cbName];
+    if(script.parentNode)script.parentNode.removeChild(script);
+    window.location.href=THANKS;
+  };
+
+  const script=document.createElement("script");
+  script.src=url;
+  script.onerror=function(){window.location.href=THANKS;};
+  document.head.appendChild(script);
+
+  setTimeout(()=>{window.location.href=THANKS;},4000);
 });
 
 /* ── FAQ ── */
