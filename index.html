@@ -97,7 +97,7 @@ p{color:var(--muted);font-weight:500}
 .flt{animation:flt 4.5s ease-in-out infinite}
 .fcard-b{animation-delay:1.6s}
 @media(prefers-reduced-motion:reduce){.flt{animation:none}}
-.scroll-hint{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:6px}
+.scroll-hint{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);z-index:0;display:flex;flex-direction:column;align-items:center;gap:6px;pointer-events:none}
 .scroll-hint span{font-size:.65rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted2)}
 @keyframes bd{0%,100%{opacity:.5;transform:translateY(0)}50%{opacity:1;transform:translateY(7px)}}
 .scroll-arrow{width:18px;height:18px;border-right:1.5px solid var(--gold);border-bottom:1.5px solid var(--gold);transform:rotate(45deg);animation:bd 2s ease-in-out infinite}
@@ -261,6 +261,8 @@ p{color:var(--muted);font-weight:500}
   .pain-grid{grid-template-columns:1fr;gap:10px;margin-top:32px}
   .fw-grid{grid-template-columns:1fr;gap:10px;margin-top:28px}
   .mob-cta .btn{padding:14px 20px;font-size:.88rem;width:100%}
+  .scroll-hint{display:none}
+  .hero-micro{padding-bottom:40px}
 }
 </style>
 </head>
@@ -282,7 +284,7 @@ p{color:var(--muted);font-weight:500}
       </div>
       <h1 class="hero-title">Descubra em <span>2 dias</span> o que está travando o crescimento do seu negócio</h1>
       <div class="hero-divider" aria-hidden="true"></div>
-      <p class="hero-sub">Uma experiência online e gratuita com Erico Theophilo para você identificar qual parte da sua estrutura precisa ser organizada primeiro e como começar a construir um negócio mais sólido, lucrativo e com direção.</p>
+      <p class="hero-sub">Uma experiência online e gratuita com Erico Theophilo para você identificar qual parte da sua estrutura precisa ser organizada primeiro e como começar a construir um negócio mais sólido, lucrativo e com propósito.</p>
       <div class="pills">
         <span class="pill"><span class="pill-icon">📅</span>15 e 16 de junho</span>
         <span class="pill"><span class="pill-icon">🕖</span>Às 19h</span>
@@ -319,10 +321,10 @@ p{color:var(--muted);font-weight:500}
     <p class="sec-body rv">Quando o negócio trava, é comum tentar resolver tudo ao mesmo tempo: vender mais, postar mais, anunciar mais, mudar a oferta, baixar preço ou trabalhar ainda mais. Mas, muitas vezes, o problema está em uma parte da estrutura que ainda não foi organizada.</p>
     <div class="pain-grid">
       <div class="pain-card rv"><div class="pain-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>Você trabalha muito, mas sente que o negócio ainda depende demais de você.</div>
-      <div class="pain-card rv"><div class="pain-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>Você sabe que pode ganhar mais, mas não sabe o que organizar primeiro.</div>
+      <div class="pain-card rv"><div class="pain-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>Você sabe que pode ganhar mais, mas não sabe o que fazer primeiro.</div>
       <div class="pain-card rv"><div class="pain-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>Você tem dificuldade para vender o valor do que faz.</div>
       <div class="pain-card rv"><div class="pain-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>Você quer cobrar melhor, mas ainda sente insegurança.</div>
-      <div class="pain-card rv"><div class="pain-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>Você quer crescer, mas sente que falta direção.</div>
+      <div class="pain-card rv"><div class="pain-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>Você quer crescer, mas não sabe como.</div>
       <div class="pain-card rv"><div class="pain-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>Você percebe que está improvisando mais do que estruturando.</div>
     </div>
     <p class="sec-impact rv">Antes de acelerar, você precisa saber exatamente o que está travando.</p>
@@ -422,8 +424,8 @@ p{color:var(--muted);font-weight:500}
       <span class="tag rv">Quem vai conduzir a imersão</span>
       <h2 class="sec-title sec-title-left rv">Erico Theophilo</h2>
       <div class="rv"><div style="width:40px;height:2px;background:linear-gradient(90deg,var(--gold),var(--gold-light));margin-bottom:24px;border-radius:2px"></div></div>
-      <p class="sec-body sec-body-left rv">Erico Theophilo é empresário, mentor, palestrante e criador do Método 12Vs. Em sua trajetória, já ajudou empresários, profissionais e pessoas em processo de crescimento a enxergarem com mais clareza seus desafios, suas travas e seus próximos passos.</p>
-      <p class="sec-body sec-body-left rv">A proposta da imersão não é entregar mais uma fórmula pronta. É ajudar você a entender, com profundidade e clareza, qual parte da sua estrutura precisa ser organizada primeiro.</p>
+      <p class="sec-body sec-body-left rv">Erico Theophilo é empresário, mentor, palestrante e criador do Método 12Vs.</p>
+      <p class="sec-body sec-body-left rv">Com 19 anos de trajetória, mais de 900 empresas atendidas e milhões de pessoas impactadas, Erico construiu sua história empreendendo no Brasil. Também atuou como o Patati, da dupla Patati Patatá, e escreveu o livro "A Magia da Comunicação". Hoje, vive na Espanha com sua família, mantendo seus negócios ativos no Brasil.</p><p class="sec-body sec-body-left rv">Antes disso, também viveu uma realidade comum: trabalhou como CLT, acordava cedo, pegava ônibus e sentia que podia construir algo maior.</p><p class="sec-body sec-body-left rv">Hoje, sua missão é ajudar empresários, profissionais liberais, PJs, prestadores de serviço e pessoas que querem empreender a entenderem quais pilares precisam organizar para vender melhor, se posicionar com mais clareza e crescer com mais direção.</p>
 
     </div>
   </div>
@@ -539,9 +541,22 @@ const THANKS="https://www.ericotheophilo.com/proximopasso";
 
 /* ── Mobile CTA ── */
 (function(){
-  const bar=document.getElementById("mob-cta");const hero=document.querySelector(".hero");
+  const bar=document.getElementById("mob-cta");
+  const hero=document.querySelector(".hero");
+  const footer=document.querySelector(".footer");
   if(!bar||!hero||window.innerWidth>840)return;
-  if("IntersectionObserver"in window){new IntersectionObserver(es=>es.forEach(e=>{const b=bar.querySelector("button");if(!e.isIntersecting){bar.classList.add("show");bar.setAttribute("aria-hidden","false");b.removeAttribute("tabindex");}else{bar.classList.remove("show");bar.setAttribute("aria-hidden","true");b.setAttribute("tabindex","-1");}}),{threshold:0}).observe(hero);}
+  function showBar(){bar.classList.add("show");bar.setAttribute("aria-hidden","false");bar.querySelector("button").removeAttribute("tabindex");}
+  function hideBar(){bar.classList.remove("show");bar.setAttribute("aria-hidden","true");bar.querySelector("button").setAttribute("tabindex","-1");}
+  if("IntersectionObserver"in window){
+    new IntersectionObserver(es=>es.forEach(e=>{
+      if(!e.isIntersecting)showBar();else hideBar();
+    }),{threshold:0}).observe(hero);
+    if(footer){
+      new IntersectionObserver(es=>es.forEach(e=>{
+        if(e.isIntersecting)hideBar();else if(!hero.getBoundingClientRect||hero.getBoundingClientRect().bottom<0)showBar();
+      }),{threshold:0}).observe(footer);
+    }
+  }
 })();
 
 /* ── Modal ── */
