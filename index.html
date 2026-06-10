@@ -7,7 +7,7 @@
 <meta name="description" content="Uma experiência online e gratuita com Erico Theophilo para identificar o que está travando o crescimento do seu negócio. 15 e 16 de junho, às 19h."/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" media="print" onload="this.media='all'"/><noscript><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/></noscript>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
@@ -104,7 +104,7 @@ p{color:var(--muted);font-weight:500}
 @media(prefers-reduced-motion:reduce){.scroll-arrow{animation:none}}
 /* PAIN */
 .pain-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px;margin-top:52px}
-.pain-card{display:flex;align-items:flex-start;gap:16px;padding:24px;background:rgba(11,22,40,.6);border:1px solid rgba(255,255,255,.07);border-radius:10px;font-size:.95rem;color:var(--muted);font-weight:500;transition:border-color .25s,background .25s,box-shadow .25s;backdrop-filter:blur(8px)}
+.pain-card{display:flex;align-items:flex-start;gap:16px;padding:24px;background:rgba(11,22,40,.6);border:1px solid rgba(255,255,255,.07);border-radius:10px;font-size:.95rem;color:var(--muted);font-weight:500;transition:border-color .25s,background .25s,box-shadow .25s}
 .pain-card:hover{border-color:var(--gold-border);background:rgba(11,22,40,.85);box-shadow:0 0 32px var(--gold-glow)}
 .pain-check{width:24px;height:24px;border-radius:50%;background:var(--gold-pale);border:1px solid var(--gold-border);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
 .pain-check svg{width:11px;height:11px;stroke:var(--gold);stroke-width:2.5;fill:none}
@@ -222,28 +222,45 @@ p{color:var(--muted);font-weight:500}
   .auth-vis{width:260px;margin:0 auto}
   .auth-frame::before,.auth-frame::after{display:none}
   .auth-copy .sec-title-left,.auth-copy .sec-body-left{text-align:center}
-  .auth-badges{align-items:center}
   .fcard-t{left:-4%}.fcard-b{right:-4%}
 }
 @media(max-width:840px){
-  .sec{padding:80px 0}
-  .hero{padding:80px 0 80px;min-height:auto}
-  .hero-in{grid-template-columns:1fr;text-align:center;gap:44px}
-  .hero-copy{align-items:center;order:2}
-  .hero-vis{order:1;min-height:300px}
-  .hero-sub{text-align:center}
-  .pills{justify-content:center}
-  .hero-micro{justify-content:center}
-  .hero-divider{margin:20px auto 24px}
-  .hero-title{max-width:100%}
-  .hero-photo{max-height:320px}
-  .fcard{font-size:.75rem;padding:10px 14px}
-  .fcard-t{top:2%;left:2%}.fcard-b{bottom:2%;right:2%}
+  .sec{padding:64px 0}
+  .hero{padding:72px 0 48px;min-height:auto}
+  .hero-in{grid-template-columns:1fr;text-align:center;gap:24px}
+  .hero-copy{align-items:center;order:2;width:100%}
+  .hero-vis{order:1;min-height:auto}
+  .hero-sub{text-align:center;font-size:.95rem}
+  .pills{justify-content:center;gap:8px;flex-wrap:wrap}
+  .pill{font-size:.72rem;padding:6px 12px}
+  .hero-micro{justify-content:center;font-size:.74rem}
+  .hero-divider{margin:16px auto 20px}
+  .hero-title{max-width:100%;font-size:clamp(1.7rem,7vw,2.4rem)}
+  .hero-photo{max-height:260px;width:auto;margin:0 auto}
+  .fcard{font-size:.7rem;padding:8px 12px;gap:8px}
+  .fcard-t{top:2%;left:1%}.fcard-b{bottom:2%;right:1%}
+  .btn{padding:14px 20px;font-size:.88rem;width:100%;max-width:100%;box-sizing:border-box}
   .days-track{grid-template-columns:1fr}
   .days-connector{display:none}
-  .urgency-box{padding:32px 24px}
-  .modal{padding:32px 24px;border-radius:16px}
-  .modal-title{font-size:1.35rem}
+  .day-card{padding:24px 20px}
+  .urgency-box{padding:28px 20px}
+  .ev-info{gap:10px}
+  .ev-item{padding:14px 16px;min-width:90px}
+  .modal{padding:28px 20px;border-radius:16px;max-height:95svh}
+  .modal-title{font-size:1.2rem}
+  .modal-hd{margin-bottom:20px}
+  .notfor{padding:20px 16px}
+  .wrap{padding:0 16px}
+  .faq-q{padding:16px 18px;font-size:.88rem}
+  .faq-a{padding:0 18px 16px;margin:0 18px}
+  .sec-title{font-size:clamp(1.3rem,5.5vw,2rem)}
+  .sec-body{font-size:.95rem;margin-bottom:36px}
+  .vs-grid{grid-template-columns:repeat(auto-fill,minmax(100px,1fr));gap:8px;margin:32px 0 20px}
+  .vs-card{padding:16px 8px}
+  .vs-letter{font-size:1.5rem}
+  .pain-grid{grid-template-columns:1fr;gap:10px;margin-top:32px}
+  .fw-grid{grid-template-columns:1fr;gap:10px;margin-top:28px}
+  .mob-cta .btn{padding:14px 20px;font-size:.88rem;width:100%}
 }
 </style>
 </head>
@@ -280,7 +297,7 @@ p{color:var(--muted);font-weight:500}
       <div class="hero-gold-glow"></div>
       <div class="hero-ring"></div>
       <div class="hero-ring2"></div>
-      <img class="hero-photo" src="https://suportegrovi-maker.github.io/futuros-donos/erico-transp.png" alt="Erico Theophilo" width="560" height="700" loading="eager" style="max-height:680px;width:auto"/>
+      <img class="hero-photo" src="https://suportegrovi-maker.github.io/futuros-donos/erico-transp.png" alt="Erico Theophilo" width="560" height="700" loading="eager" decoding="async" style="max-height:680px;width:auto;aspect-ratio:560/700"/>
       <div class="fcard fcard-t flt">
         <div class="fcard-icon">🔍</div>
         <div class="fcard-text"><span class="fcard-label">Diagnóstico</span><span>Método 12Vs</span></div>
@@ -398,7 +415,7 @@ p{color:var(--muted);font-weight:500}
     <div class="auth-vis rv">
       <div class="auth-glow"></div>
       <div class="auth-frame">
-        <img class="auth-photo" src="https://suportegrovi-maker.github.io/futuros-donos/Foto%20Erico%20p%C3%A1gina.jpg" alt="Erico Theophilo, mentor da imersão" width="400" height="480" loading="lazy"/>
+        <img class="auth-photo" src="https://suportegrovi-maker.github.io/futuros-donos/Foto%20Erico%20p%C3%A1gina.jpg" alt="Erico Theophilo, mentor da imersão" width="400" height="480" loading="lazy" decoding="async" style="aspect-ratio:400/480"/>
       </div>
     </div>
     <div class="auth-copy">
